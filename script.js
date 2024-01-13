@@ -52,3 +52,16 @@ saveBtn.addEventListener("click", (event) => {
         link.click();
 
 })
+  document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('input[type=text]');
+    inputs.forEach(function(input, index) {
+        input.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13) { // 13 is the Enter key
+                event.preventDefault(); // Prevent the default Enter key action
+                // Find next input index
+                var nextIndex = (index + 1) % inputs.length;
+                inputs[nextIndex].focus(); // Move focus to next input
+            }
+        });
+    });
+});
